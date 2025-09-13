@@ -6,15 +6,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-
-
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 import { Client, GatewayIntentBits, Partials } from 'discord.js';
 
-// ---------- CONFIG ----------
 const TOKEN = process.env.DISCORD_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID; // application id
 const GUILD_ID = process.env.GUILD_ID;
@@ -56,18 +53,16 @@ client.once('ready', async () => {
     console.log(`Logged in as ${client.user.tag}`);
 });
 
-// ---------- PANEL DEFINITION ----------
-// Each button customId = dept|type_key (e.g. marketing|graphics)
+
 const PANELS = [
     {
         id: 'panel_marketing', title: 'Marketing', description: 'Use this for graphics, social posts, broadcast assets, and brand approvals.', role: ROLES.marketing,
-        // ...panel config continues...
+        
     }
-    // Add other panels as needed
+   
 ];
 
-// --- INTEGRATION STOPPED HERE ---
-// Please continue pasting the rest of your ticket bot code here to complete the integration.
+
 
 client.login(TOKEN);
 
