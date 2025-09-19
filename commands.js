@@ -26,7 +26,22 @@ const TEST_COMMAND = {
   contexts: [0, 1, 2],
 };
 
-// Command containing options
+const { Client, GatewayIntentBits, Events } = require('discord.js');
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+client.once(Events.ClientReady, c => {
+  console.log(`✅ Ready! Logged in as ${c.user.tag}`);
+});
+
+client.on(Events.InteractionCreate, async interaction => {
+  if (!interaction.isCommand()) return;
+
+  if (interaction.commandName === 'test') {
+    await interaction.reply('Hello! Your test command works 🎉');
+  }
+});
+
+
 const CHALLENGE_COMMAND = {
   name: 'challenge',
   description: 'Challenge to a match of rock paper scissors',
